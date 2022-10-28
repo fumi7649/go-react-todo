@@ -9,3 +9,20 @@ services:
     tty: true
     volumes:
       - ./api:/go/src/app
+  mysql:
+    build: 
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tododb
+      MYSQL_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    volumes:
+     - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3307:3307
+    command: --port 3307
+    links:
+     - go
