@@ -1,0 +1,11 @@
+services:
+  go:
+    build: 
+      context: .
+      dockerfile: ./docker/go/Dockerfile
+    container_name: go-api
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - ./api:/go/src/app
