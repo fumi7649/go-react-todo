@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/fumi7649/go-react-todo/model"
+	"github.com/fumi7649/go-react-todo/utils"
+)
+
+func init () {
+	utils.LoggingSettings("todoapp.log")
+	model.DbConnect()
+}
 
 func main () {
-	fmt.Println("hello")
+	fmt.Println(model.Db)
 }
