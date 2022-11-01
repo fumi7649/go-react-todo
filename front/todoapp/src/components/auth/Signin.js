@@ -53,7 +53,7 @@ const Signin = () => {
           </Button>
           <Typography variant="caption">
             アカウントを持っていませんか？
-            <Link href="#">アカウント作成</Link>
+            <Link href="/signup">アカウント作成</Link>
           </Typography>
         </Box>
       </Paper>
