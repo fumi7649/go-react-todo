@@ -7,12 +7,27 @@ import (
 	"time"
 
 	"github.com/fumi7649/go-react-todo/model"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func StartServer() {
 	router := gin.Default()
-	
+	router.Use(cors.New(cors.Config{
+		AllowOrigins: []string{
+			"http://localhost:3000",
+		},
+		AllowMethods: []string{
+			"GET",
+			"POST",
+			"DELETE",
+			"PUT",
+		},
+		AllowHeaders: []string{
+			"Authorization",
+		},
+	}))
+
 	v1 := router.Group("todo/api/v1")
 	{
 		v1.GET("/todos", todosGET)
