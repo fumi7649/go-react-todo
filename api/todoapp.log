@@ -3,3 +3,4 @@
 2022/11/01 05:34:24 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:55586->127.0.0.11:53: i/o timeout
 2022/11/01 07:15:41 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:41661->127.0.0.11:53: i/o timeout
 2022/11/01 07:27:26 todo.go:32: dial tcp 172.22.0.4:3307: connect: connection refused
+2022/11/01 08:59:33 todo.go:54: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:41220->127.0.0.11:53: i/o timeout

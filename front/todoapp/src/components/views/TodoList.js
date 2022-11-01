@@ -39,7 +39,7 @@ const TodoList = () => {
     console.log("create todo");
   }
 
-  const handleDeleteTodo = async (id, index) => {
+  const handleDeleteTodo = async (id) => {
     await axios.delete(`http://localhost:8080/todo/api/v1/todos/${id}`)
       .then(() => {
         getTodosData();
@@ -61,7 +61,7 @@ const TodoList = () => {
           size='small'
           onChange={handleChangeTodo}
         />
-        <Button variant="contained" endIcon={<AddIcon />} onClick={ handleCreateTodo }>create</Button>
+        <Button variant="contained" endIcon={<AddIcon />} onClick={ handleCreateTodo }>CREATE</Button>
       </Grid>
       <TodoItem {...todos} onClick={ handleDeleteTodo } />
     </>
