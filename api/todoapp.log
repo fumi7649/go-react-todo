@@ -1,1 +1,4 @@
 2022/10/28 14:22:22 todo.go:24: sql: no rows in result set
+2022/11/01 05:09:44 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:54655->127.0.0.11:53: i/o timeout
+2022/11/01 05:34:24 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:55586->127.0.0.11:53: i/o timeout
+2022/11/01 07:15:41 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:41661->127.0.0.11:53: i/o timeout

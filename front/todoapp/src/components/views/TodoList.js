@@ -1,15 +1,29 @@
 import { Button, Grid, TextField } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import TodoItem from './TodoItem';
+import axios from 'axios';
 
 const TodoList = () => {
   const [todo, setTodo] = useState('');
-  const [todos, setTodos] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const handleChangeTodo = (event) => {
     setTodo(event.target.value);
   }
+
+  const getTodosData = async() => {
+    await axios.get("http://localhost:8080/todo/api/v1/todos")
+      .then((res) => {
+        setTodos(res.data);
+      }).catch((err) => {
+        console.error(err);
+      })
+  }
+  
+  useEffect(() => {
+    getTodosData();
+  }, []);
 
   return (
     <>

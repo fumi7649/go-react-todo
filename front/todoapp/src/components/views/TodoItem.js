@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const TodoItem = (props) => {
-  const tasks = props.tasks;
+  const todos = props.todos;
   return (
     <Grid container alignItems="center" justifyContent="center">
       <Box
@@ -20,12 +20,12 @@ const TodoItem = (props) => {
             maxHeight: 300,
             '& ul': { padding: 0 },
           }}>
-          {tasks?.map((task, index) => {
+          {todos?.map((todo, index) => {
             return (
               <ListItem key={index}>
                 <WorkIcon sx={{ p: 2 }} />
-                <ListItemText primary={task.title} />
-                <Button onClick={() => props.onClick(task.id)} endIcon={<DeleteIcon />}>Delete</Button>
+                <ListItemText primary={todo.title} />
+                <Button onClick={() => props.onClick(todo.id)} endIcon={<DeleteIcon />}>Delete</Button>
               </ListItem>
             )
           })}
