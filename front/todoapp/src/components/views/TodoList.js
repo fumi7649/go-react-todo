@@ -12,7 +12,7 @@ const TodoList = () => {
     setTodo(event.target.value);
   }
 
-  const getTodosData = async() => {
+  const getTodosData = async () => {
     await axios.get("http://localhost:8080/todo/api/v1/todos")
       .then((res) => {
         setTodos(res.data);
@@ -20,10 +20,34 @@ const TodoList = () => {
         console.error(err);
       })
   }
-  
+
   useEffect(() => {
     getTodosData();
   }, []);
+
+  const handleCreateTodo = async () => {
+    const params = new URLSearchParams;
+    params.append("title", todo);
+    await axios.post("http://localhost:8080/todo/api/v1/todos", params)
+      .then(() => {
+        getTodosData();
+        setTodo('');
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    console.log("create todo");
+  }
+
+  const handleDeleteTodo = async (id, index) => {
+    await axios.delete(`http://localhost:8080/todo/api/v1/todos/${id}`)
+      .then(() => {
+        getTodosData();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   return (
     <>
@@ -37,9 +61,9 @@ const TodoList = () => {
           size='small'
           onChange={handleChangeTodo}
         />
-        <Button variant="contained" endIcon={<AddIcon />}>create</Button>
+        <Button variant="contained" endIcon={<AddIcon />} onClick={ handleCreateTodo }>create</Button>
       </Grid>
-      <TodoItem {...todos}/>
+      <TodoItem {...todos} onClick={ handleDeleteTodo } />
     </>
   );
 }
