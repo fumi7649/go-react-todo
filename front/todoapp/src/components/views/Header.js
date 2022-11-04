@@ -1,9 +1,19 @@
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
+import { auth } from "../auth/firebase";
+
 const Header = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    navigate('/signin');
+    auth.signOut()
+      .then(() => {
+        localStorage.removeItem('jwt');
+        navigate("/signin");
+      })
+      .catch((err) => {
+        alert(err.message);
+        console.error(err);
+      })
   };
 
 
