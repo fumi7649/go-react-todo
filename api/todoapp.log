@@ -6,3 +6,15 @@
 2022/11/01 08:59:33 todo.go:54: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:41220->127.0.0.11:53: i/o timeout
 2022/11/09 07:54:27 todo.go:54: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:55752->127.0.0.11:53: i/o timeout
 2022/11/09 07:54:54 todo.go:32: dial tcp: lookup mysql on 127.0.0.11:53: read udp 127.0.0.1:52041->127.0.0.11:53: i/o timeout
+2022/11/13 07:16:56 auth.go:25: err: google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information.
+2022/11/13 07:17:57 auth.go:25: err: google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information.
+2022/11/13 07:38:33 auth.go:25: err: google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information.
+2022/11/13 07:51:18 auth.go:34: ID token must be a non-empty string
+2022/11/13 07:51:55 auth.go:34: ID token must be a non-empty string
+2022/11/13 07:56:56 auth.go:34: ID token must be a non-empty string
+2022/11/13 07:57:40 auth.go:34: ID token must be a non-empty string
+2022/11/13 07:59:08 auth.go:34: ID token must be a non-empty string
+2022/11/13 08:05:32 auth.go:34: ID token must be a non-empty string
+2022/11/13 08:06:48 auth.go:34: ID token must be a non-empty string
+2022/11/13 08:30:54 auth.go:34: ID token must be a non-empty string
+2022/11/13 08:32:17 auth.go:34: ID token must be a non-empty string
