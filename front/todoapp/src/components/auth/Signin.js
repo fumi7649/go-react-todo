@@ -24,6 +24,7 @@ const Signin = () => {
         user.getIdToken().then(idToken => {
           localStorage.setItem('jwt', idToken.toString());
         });
+        console.log(localStorage.getItem('jwt'));
         navigate("/");
       })
       .catch((err) => {

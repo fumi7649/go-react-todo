@@ -13,7 +13,9 @@ const TodoList = () => {
   }
 
   const getTodosData = async () => {
-    await axios.get("http://localhost:8080/todo/api/v1/todos")
+    await axios.get("http://localhost:8080/todo/api/v1/todos", {
+      headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+    })
       .then((res) => {
         setTodos(res.data);
       }).catch((err) => {
@@ -28,8 +30,9 @@ const TodoList = () => {
   const handleCreateTodo = async () => {
     const params = new URLSearchParams;
     params.append("title", todo);
-    await axios.post("http://localhost:8080/todo/api/v1/todos", params)
-      .then(() => {
+    await axios.post("http://localhost:8080/todo/api/v1/todos", params, {
+      headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+    }).then(() => {
         getTodosData();
         setTodo('');
       })
@@ -40,8 +43,9 @@ const TodoList = () => {
   }
 
   const handleDeleteTodo = async (id) => {
-    await axios.delete(`http://localhost:8080/todo/api/v1/todos/${id}`)
-      .then(() => {
+    await axios.delete(`http://localhost:8080/todo/api/v1/todos/${id}`, {
+      headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
+    }).then(() => {
         getTodosData();
       })
       .catch((err) => {
@@ -61,9 +65,9 @@ const TodoList = () => {
           size='small'
           onChange={handleChangeTodo}
         />
-        <Button variant="contained" endIcon={<AddIcon />} onClick={ handleCreateTodo }>CREATE</Button>
+        <Button variant="contained" endIcon={<AddIcon />} onClick={handleCreateTodo}>CREATE</Button>
       </Grid>
-      <TodoItem {...todos} onClick={ handleDeleteTodo } />
+      <TodoItem {...todos} onClick={handleDeleteTodo} />
     </>
   );
 }
