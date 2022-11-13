@@ -1,6 +1,8 @@
 import { Grid, Paper, Typography, TextField, Link, Button, Box } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase';
 
 
 const Signup = () => {
@@ -16,8 +18,14 @@ const Signup = () => {
     setPassword(event.target.value);
   }
 
-  const handleSubmit = () => {
-    navigate("/");
+  const handleSubmit = async () => {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
+      }).catch((err) => {
+        alert(err.message);
+        console.error(err);
+      });
  } 
   return (
     <Grid>

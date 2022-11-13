@@ -28,7 +28,8 @@ func StartServer() {
 		},
 	}))
 
-	v1 := router.Group("todo/api/v1")
+	v1 := router.Group("/todo/api/v1")
+	v1.Use(authMiddleware())
 	{
 		v1.GET("/todos", todosGET)
 		v1.POST("/todos", todoPOST)
