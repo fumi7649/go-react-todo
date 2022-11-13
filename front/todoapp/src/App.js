@@ -4,7 +4,6 @@ import Signup from "./components/auth/Signup";
 import Top from "./components/views/Top";
 import { AuthProvider } from "./context/AuthContext";
 
-
 function App() {
   return (
     <AuthProvider>
@@ -17,7 +16,6 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
   )
-
 }
 
 export default App;

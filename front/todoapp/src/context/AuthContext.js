@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../components/auth/firebase";
+
 const AuthContext = createContext();
 
 export function useAuthContext() {
@@ -9,6 +10,7 @@ export function useAuthContext() {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState('');
   const [loading, setLoading] = useState(true);
+  
   const value = {
     user,
     loading,
