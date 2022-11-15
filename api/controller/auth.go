@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 
@@ -31,7 +32,9 @@ func authMiddleware() gin.HandlerFunc {
 
 		token, err := auth.VerifyIDToken(context.Background(), idToken)
 		if err != nil {
-			log.Fatalln(err)
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
+				"Error": err.Error(),
+			})
 			return
 		}
 		log.Printf("Vertifed ID token: %v\n", token)
